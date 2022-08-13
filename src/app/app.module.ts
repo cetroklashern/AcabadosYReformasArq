@@ -9,14 +9,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { MisionComponent } from './nosotros/mision/mision.component';
 import { QuienesSomosComponent } from './nosotros/quienesSomos/quienes-somos.component';
 import { VisionComponent } from './nosotros/vision/vision.component';
-import { AcabadosComponent } from './servicios/acabados/acabados/acabados.component';
-import { ElectricosComponent } from './servicios/electricos/electricos/electricos.component';
-import { PlomeriaComponent } from './servicios/plomeria/plomeria/plomeria.component';
-import { BaniosComponent } from './ambientes/baños/banios.component';
-import { CocinasComponent } from './ambientes/cocinas/cocinas.component';
-import { SalaComedorComponent } from './ambientes/salaComedor/sala-comedor.component';
-import { ServiciosComponent } from './servicios/servicios/servicios.component';
-import { AmbientesComponent } from './ambientes/ambientes/ambientes.component';
 
 const router: Routes = [
   {
@@ -38,38 +30,6 @@ const router: Routes = [
   {
     path: 'vision',
     component: VisionComponent
-  },
-  {
-    path: 'servicios',
-    component: ServiciosComponent
-  },
-  {
-    path: 'plomeria',
-    component: PlomeriaComponent
-  },
-  {
-    path: 'electricos',
-    component: ElectricosComponent
-  },
-  {
-    path: 'acabados',
-    component: AcabadosComponent
-  },
-  {
-    path: 'ambientes',
-    component: AmbientesComponent
-  },
-  {
-    path: 'cocinas',
-    component: CocinasComponent
-  },
-  {
-    path: 'banios',
-    component: BaniosComponent
-  },
-  {
-    path: 'salaComedor',
-    component: SalaComedorComponent
   }
 ];
 
@@ -78,13 +38,7 @@ const router: Routes = [
     AppComponent,
     ContactanosComponent,
     InicioComponent,
-    MisionComponent,
-    AcabadosComponent,
-    ElectricosComponent,
-    PlomeriaComponent,
-    BaniosComponent,
-    CocinasComponent,
-    SalaComedorComponent
+    MisionComponent
   ],
   imports: [
     BrowserModule,
