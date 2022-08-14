@@ -1,22 +1,17 @@
 export class Imagen {
-    private _id!: number;
-    private _descripcion!: string;
-    private _archivo!: string;
-    private _grupo!: number;
-    private _nombreGrupo!: string;
-    private _subGrupo!: number;
-    private _nombreSubGrupo!: string;
-    private _nombre!: string;
+    private _id: number = 0;
+    private _descripcion: string = "";
+    private _archivo: string = "";
+    private _grupo: number = 0;
+    private _nombreGrupo: string = "";
+    private _subGrupo: number = 0;
+    private _nombreSubGrupo: string = "";
+    private _nombre: string= "";
+    private _fecha:Date = new Date("01/01/1999");
 
     public Imagen(){
-        this._id = 0;
-        this._descripcion = "";
-        this._archivo = "";
-        this._grupo = 0;
-        this._nombreGrupo = "";
-        this._subGrupo = 0;
-        this._nombreSubGrupo = "";
-        this._nombre = "";
+      // TODO document why this method 'Imagen' is empty
+    
     }
 
     public get id(){
@@ -81,5 +76,13 @@ export class Imagen {
 
     public set nombre(newNombre:string){
         this._nombre = newNombre;
+    }
+
+    public get fecha(){
+        return this._fecha;
+    }
+
+    public set fecha(newFecha:Date){
+        this._fecha = newFecha;
     }
 }

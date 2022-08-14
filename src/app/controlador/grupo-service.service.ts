@@ -10,6 +10,7 @@ export class GrupoServiceService {
 
   public constructor() {     
     this._listaGrupos = [];
+    this.cargarGrupos();
   }
 
   public get listaGrupos(){
