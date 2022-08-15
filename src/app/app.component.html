@@ -33,9 +33,9 @@
           </li>
         </ul>
       </div>
-    </div>       
-    <ul class="menu">
-      <li><a [routerLink]="['inicio']">Inicio</a></li>
+    </div>     
+    <ul class="menu"> 
+      <li><a [routerLink]="['inicio',0,0,'Inicio']">Inicio</a></li>
       <li><a [routerLink]="['quienesSomos']">Nosotros</a>
         <ul class="msecundario">
           <li><a [routerLink]="['quienesSomos']">Quienes somos</a></li>
@@ -43,15 +43,16 @@
           <li><a [routerLink]="['vision']">Visión</a></li>
         </ul>
       </li>
-      <li><a [routerLink]="['servicios']">Servicios</a>
+      <li *ngFor="let menu of this.listaGrupos"> 
+        <a [routerLink]="['inicio', menu.nombre, menu.id, 0]"> {{menu.nombre}} </a> 
         <ul class="msecundario">
-          <li><a [routerLink]="['plomeria']">Plomería</a></li>
-          <li><a [routerLink]="['acabados']">Acabados</a></li>
-          <li><a [routerLink]="['electricos']">Electricos</a></li>
+          <li *ngFor="let submenu of this.obtenerSubMenus(menu.id)">
+            <a [routerLink]="['inicio', submenu.nombre, menu.id, submenu.id]"> {{submenu.nombre}} </a> 
+          </li>  
         </ul>
-      </li>
+      </li> 
       <li><a [routerLink]="['contacto']">Contáctanos</a></li>
-    </ul>  
+    </ul> 
   </div>
   <router-outlet></router-outlet>
 </body>

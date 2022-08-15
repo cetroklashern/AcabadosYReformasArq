@@ -57,9 +57,24 @@ export class ImagenesServiceService {
     let listaSubGrupos = this._serviceSubGrupos.listaSubGrupos;
     let listaImagenesFiltrada = new Array<Imagen>();
 
-    listaSubGrupos.forEach(subGrupo => {
-      listaImagenesFiltrada.push.apply(listaImagenesFiltrada, this.obtenerImagenes(subGrupo.grupo, subGrupo.id, 0).slice(0,2));
-    });
+    let cantidadSubGrupos = listaSubGrupos.length;
+    let cantidadImagenes:number = +(listaSubGrupos.length/9).toFixed();
+    
+    if(cantidadSubGrupos < 9){
+      listaSubGrupos.forEach(subGrupo => {
+        listaImagenesFiltrada.push.apply(listaImagenesFiltrada, this.obtenerImagenes(subGrupo.grupo, subGrupo.id, 0).slice(0,2));
+      });
+    } else {
+      if(cantidadImagenes > 2) {
+        listaSubGrupos.forEach(subGrupo => {
+          listaImagenesFiltrada.push.apply(listaImagenesFiltrada, this.obtenerImagenes(subGrupo.grupo, subGrupo.id, 0).slice(0,1));
+        });
+      } else {
+        listaSubGrupos.forEach(subGrupo => {
+          listaImagenesFiltrada.push.apply(listaImagenesFiltrada, this.obtenerImagenes(subGrupo.grupo, subGrupo.id, 0).slice(0,2));
+        });  
+      }
+    }
     
     return listaImagenesFiltrada.slice(0,9);
   }

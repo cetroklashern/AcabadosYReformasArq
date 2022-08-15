@@ -12,7 +12,7 @@ import { VisionComponent } from './nosotros/vision/vision.component';
 
 const router: Routes = [
   {
-    path: 'inicio',
+    path: 'inicio/:opcion/:grupo/:subgrupo',
     component: InicioComponent
   },
   {
@@ -43,8 +43,9 @@ const router: Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(router, {useHash: true})
+    RouterModule.forRoot(router, {onSameUrlNavigation: 'reload'})
   ],
+  exports: [RouterModule],
   providers: [],
   bootstrap: [AppComponent]
 })

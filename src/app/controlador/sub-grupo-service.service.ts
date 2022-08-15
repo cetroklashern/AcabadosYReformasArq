@@ -44,7 +44,7 @@ export class SubGrupoServiceService {
     grupo.grupo = 1;
     grupo.nombre = "Sala / Comedor";
 
-    this._listaSubGrupos.push(grupo);
+    this._listaSubGrupos.push(grupo);    
 
     grupo = new SubGrupo();
     grupo.id = 4;    
@@ -64,6 +64,13 @@ export class SubGrupoServiceService {
     grupo.id = 6;    
     grupo.grupo = 2;
     grupo.nombre = "Pintura de Zonas";
+
+    this._listaSubGrupos.push(grupo);
+
+    grupo = new SubGrupo();
+    grupo.id = 7;    
+    grupo.grupo = 1;
+    grupo.nombre = "Habitación";
 
     this._listaSubGrupos.push(grupo);
   }
