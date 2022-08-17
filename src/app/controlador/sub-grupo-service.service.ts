@@ -49,7 +49,7 @@ export class SubGrupoServiceService {
     grupo = new SubGrupo();
     grupo.id = 4;    
     grupo.grupo = 2;
-    grupo.nombre = "Plomeria";
+    grupo.nombre = "Plomería";
 
     this._listaSubGrupos.push(grupo);
 

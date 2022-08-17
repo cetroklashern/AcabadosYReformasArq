@@ -10,7 +10,7 @@ import { SubGrupo } from './entidades/sub-grupo';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {  
-  title = 'Acabados y Remodelaciones Arquitectónicas S.A.S.';
+  title = 'Acabados y Reformas Arquitectónicas S.A.S.';
   serviceGrupos: GrupoServiceService = new GrupoServiceService();
   serviceSubGrupos: SubGrupoServiceService = new SubGrupoServiceService();
   listaGrupos: Array<Grupo> = [];

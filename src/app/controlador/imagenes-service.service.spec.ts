@@ -45,7 +45,7 @@ describe('ImagenesServiceService', () => {
 
     resultado = service.obtenerImagenes(categoria, grupo, pagina);
     
-    expect(resultado.length).toBeLessThan(10);    
+    expect(resultado.length).toBeLessThan(7);    
   });
 
   it('dado la solicitud de el grupo 3 para cuando se consultan las imagenes entonces carga lista de minimo 9 imagenes', () => {
@@ -58,7 +58,7 @@ describe('ImagenesServiceService', () => {
 
     resultado = service.obtenerImagenes(categoria, grupo, pagina);
     
-    expect(resultado.length).toBe(9);    
+    expect(resultado.length).toBe(6);    
   });
 
   it('dado la solicitud de el grupo 1 para cuando se consultan las imagenes entonces carga lista ordenada por fecha', () => {
@@ -105,7 +105,7 @@ describe('ImagenesServiceService', () => {
 
     resultado = service.obtenerImagenesAleatorias();
     
-    expect(resultado.length).toBeLessThan(10);    
+    expect(resultado.length).toBeLessThan(7);    
   });
 
   it('dada la solicitud de imagenes cuando se consulta por imagenes aleatorias entonces retorna una lista con maximo 2 imagenes de cada grupo', () => {

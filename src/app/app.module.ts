@@ -8,7 +8,6 @@ import { InicioComponent } from './inicio/inicio.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MisionComponent } from './nosotros/mision/mision.component';
 import { QuienesSomosComponent } from './nosotros/quienesSomos/quienes-somos.component';
-import { VisionComponent } from './nosotros/vision/vision.component';
 
 const router: Routes = [
   {
@@ -26,10 +25,6 @@ const router: Routes = [
   {
     path: 'mision',
     component: MisionComponent
-  },
-  {
-    path: 'vision',
-    component: VisionComponent
   }
 ];
 

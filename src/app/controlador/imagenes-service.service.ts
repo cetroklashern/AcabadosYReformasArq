@@ -28,14 +28,14 @@ export class ImagenesServiceService {
     if(pagina == 0){
       listaResultado = this._listaImagenes.filter(imagen => imagen.grupo == grupo && imagen.subGrupo == subGrupo).
         sort((imagen1, imagen2) => imagen2.fecha.getTime() - imagen1.fecha.getTime(),).
-        slice(0,9);
+        slice(0,6);
     } else {
       listaResultado = this._listaImagenes.filter(imagen => imagen.grupo == grupo && imagen.subGrupo == subGrupo).
         sort((imagen1, imagen2) => imagen2.fecha.getTime() - imagen1.fecha.getTime(),).
-        slice(9 * pagina, (9 * pagina) + 9);
+        slice(6 * pagina, (6 * pagina) + 6);
     }
 
-    while(listaResultado.length < 9){
+    while(listaResultado.length < 6){
       listaResultado.push(this.obtenerImagenPorDefecto());
     }
 
@@ -58,9 +58,9 @@ export class ImagenesServiceService {
     let listaImagenesFiltrada = new Array<Imagen>();
 
     let cantidadSubGrupos = listaSubGrupos.length;
-    let cantidadImagenes:number = +(listaSubGrupos.length/9).toFixed();
+    let cantidadImagenes:number = +(listaSubGrupos.length/6).toFixed();
     
-    if(cantidadSubGrupos < 9){
+    if(cantidadSubGrupos < 6){
       listaSubGrupos.forEach(subGrupo => {
         listaImagenesFiltrada.push.apply(listaImagenesFiltrada, this.obtenerImagenes(subGrupo.grupo, subGrupo.id, 0).slice(0,2));
       });
@@ -76,7 +76,7 @@ export class ImagenesServiceService {
       }
     }
     
-    return listaImagenesFiltrada.slice(0,9);
+    return listaImagenesFiltrada.slice(0,6);
   }
 
   private cargarImagenes(){

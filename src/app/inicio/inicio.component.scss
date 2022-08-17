@@ -4,44 +4,38 @@
 }
 
 .mensaje{
-    //margin-left: 20%;
-    //margin-right: 20%;
+    width: 90%;
+    height: calc(3rem + 1vw);
+    display: flex;
+    align-items: center;        
+    text-align: center;   
+    //background: red;
+}
+
+.texto{  
+    height: 50%;
     width: 100%;
-    height: 100px;
+    font-size: calc(1rem + 1vw);
+    font-weight: bold; 
+    font-family: Arial, Helvetica, sans-serif; 
+    z-index: 0;    
+    //background: blue;
+    align-items: flex-end;
+}
+
+.mensaje2{
+    width: 90%;
+    height: calc(4rem + 1vw);
     display: flex;
     align-items: center;
-    padding: 0;
+    //background: yellow;
 }
 
-.imagen-casa{
-    position: absolute;
-    width: calc(3rem + 6vw);
-    max-width: 120px;
-    height: calc(3rem + 6vw);
-    max-height: 120px;
-    z-index: 1;
-    left: 10px;
-    filter: drop-shadow(0.1em 0.1em 0.2em black);
-}
-
-.texto{
-    position: absolute;    
-    width: 100%;
-    height: 7vw;
-    max-height: 50px;
-    font-size: calc(1rem + 0.5vw);
-    font-weight: bold;  
+.texto2 {  
     text-align: center;
-    //background: linear-gradient(to right, #3ca2b8, #6eacb9, #a2b5b9);
+    font-size: calc(0.5rem + 0.9vw);
+    font-family: Arial, Helvetica, sans-serif; 
     z-index: 0;    
-    line-height: calc(1.2rem + 2.1vw);
-}
-
-.imagen-pequenia {
-    width: 48%;
-    height: 48%;
-    margin-left: 1%;
-    margin-right: 1%;
 }
 
 .imagen-grande {
@@ -52,18 +46,173 @@
 
 .padre{
     display: inline-flex;    
-    width: 100%;    
+    width: 90%;    
+    float: left; 
 }
 
-.hijo{
-    display: inline; 
-    width: 100%;
-    height: 90px;
+.icons8-whatsapp { 
+    display: inline-block;
+    width: calc(1rem + 3vw);
+    height: calc(1rem + 3vw);
+    background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iODAiIGhlaWdodD0iODAiCnZpZXdCb3g9IjAgMCAxNzIgMTcyIgpzdHlsZT0iIGZpbGw6IzAwMDAwMDsiPjxnIHRyYW5zZm9ybT0iIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9Im5vbnplcm8iIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2UtbGluZWNhcD0iYnV0dCIgc3Ryb2tlLWxpbmVqb2luPSJtaXRlciIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBzdHJva2UtZGFzaGFycmF5PSIiIHN0cm9rZS1kYXNob2Zmc2V0PSIwIiBmb250LWZhbWlseT0ibm9uZSIgZm9udC13ZWlnaHQ9Im5vbmUiIGZvbnQtc2l6ZT0ibm9uZSIgdGV4dC1hbmNob3I9Im5vbmUiIHN0eWxlPSJtaXgtYmxlbmQtbW9kZTogbm9ybWFsIj48cGF0aCBkPSJNMCwxNzJ2LTE3MmgxNzJ2MTcyeiIgZmlsbD0ibm9uZSI+PC9wYXRoPjxnPjxwYXRoIGQ9Ik0xOC4xNTAzLDEyNS45ODE0bC0wLjQ0NzIsLTAuNzc4M2MtNi45MTQ0LC0xMS45Nzk4IC0xMC41NzM3LC0yNS42NjY3IC0xMC41Njk0LC0zOS41ODE1YzAuMDE3MiwtNDMuNjUzNiAzNS41NDgxLC03OS4xNzE2IDc5LjIwMTcsLTc5LjE3MTZjMjEuMTgxOCwwLjAwODYgNDEuMDc3OSw4LjI1MTcgNTYuMDI5LDIzLjIxNTdjMTQuOTUxMSwxNC45NjQgMjMuMTg1NiwzNC44NjAxIDIzLjE4NTYsNTYuMDIwNGMtMC4wMjE1LDQzLjY1NzkgLTM1LjU1MjQsNzkuMTgwMiAtNzkuMjA2LDc5LjE4MDJjLTEzLjI1MjYsLTAuMDA4NiAtMjYuMzQxOCwtMy4zMzY4IC0zNy44ODczLC05LjYzMmwtMC43NDgyLC0wLjQxMjhsLTQwLjM1NTUsMTAuNTc4eiIgZmlsbD0iI2YyZmFmZiI+PC9wYXRoPjxwYXRoIGQ9Ik04Ni4zMzU0LDguNnYwYzIwLjYwMTMsMC4wMDQzIDM5Ljk1OTksOC4wMjgxIDU0LjUwNjgsMjIuNTg3OWMxNC41NDY5LDE0LjU1OTggMjIuNTU3OCwzMy45MTQxIDIyLjU1NzgsNTQuNDk4MmMtMC4wMjE1LDQyLjQ3NTQgLTM0LjU4NDksNzcuMDMwMiAtNzcuMDg2MSw3Ny4wMzAyYy0xMi44NjEzLC0wLjAwNDMgLTI1LjU5MzYsLTMuMjQ2NSAtMzYuODI1MiwtOS4zNzRsLTEuNTAwNywtMC44MTdsLTEuNjUxMiwwLjQzNDNsLTM1LjkyMjIsOS40MTdsOS41NzE4LC0zNC45NjMzbDAuNDczLC0xLjczMjlsLTAuODk0NCwtMS41NTIzYy02LjczMzgsLTExLjY1NzMgLTEwLjI4OTksLTI0Ljk3NDQgLTEwLjI4MTMsLTM4LjUwNjVjMC4wMTcyLC00Mi40NjY4IDM0LjU4NDksLTc3LjAyMTYgNzcuMDUxNywtNzcuMDIxNk04Ni4zMzU0LDQuM2MtNDQuODM2MSwwIC04MS4zMzQ1LDM2LjQ4NTUgLTgxLjM1Niw4MS4zMjE2Yy0wLjAwODYsMTQuMzMxOSAzLjczNjcsMjguMzI4NCAxMC44NTc1LDQwLjY1NjVsLTExLjUzNjksNDIuMTQ4Nmw0My4xMjksLTExLjMwOWMxMS44ODA5LDYuNDgwMSAyNS4yNjI1LDkuODkgMzguODgwNiw5Ljg5ODZoMC4wMzQ0YzQ0LjgzNjEsMCA4MS4zMzQ1LC0zNi40ODU1IDgxLjM1NiwtODEuMzMwMmMwLC0yMS43MzIyIC04LjQ1MzgsLTQyLjE3MDEgLTIzLjgxMzQsLTU3LjU0MjZjLTE1LjM1OTYsLTE1LjM2ODIgLTM1Ljc4NDYsLTIzLjgzNDkgLTU3LjU1MTIsLTIzLjg0MzV6IiBmaWxsPSIjNzg4YjljIj48L3BhdGg+PHBhdGggZD0iTTg1Ljk3ODUsMTUwLjVjLTEwLjc2NzIsLTAuMDA0MyAtMjEuNDIyNiwtMi43MTc2IC0zMC44MTM4LC03LjgzODlsLTYuMTYxOSwtMy4zNjI2bC02Ljc4OTcsMS43ODAybC0xMy45MzYzLDMuNjU1bDMuNTY5LC0xMy4wMjlsMS45NDc5LC03LjEyMDhsLTMuNjkzNywtNi4zOTg0Yy01LjYyODcsLTkuNzQ4MSAtOC42MDQzLC0yMC44ODk0IC04LjYsLTMyLjIxNTZjMC4wMTcyLC0zNS41NDgxIDI4Ljk0NzYsLTY0LjQ2NTYgNjQuNDkxNCwtNjQuNDY5OWMxNy4yNDczLDAuMDA0MyAzMy40NDk3LDYuNzIwOSA0NS42MjMsMTguOTA3MWMxMi4xODE5LDEyLjE4NjIgMTguODg1NiwyOC4zODg2IDE4Ljg4NTYsNDUuNjE0NGMtMC4wMTcyLDM1LjU1MjQgLTI4Ljk0NzYsNjQuNDc4NSAtNjQuNTIxNSw2NC40Nzg1eiIgZmlsbD0iIzc5YmE3ZSI+PC9wYXRoPjxwYXRoIGQ9Ik0xMjEuNjA0LDEwMS44NTg0Yy0xLjkzNSwtMC45NjMyIC0xMS40MzgsLTUuNjQ1OSAtMTMuMjA1MywtNi4yODY2Yy0xLjc3NTksLTAuNjQ5MyAtMy4wNjE2LC0wLjk2MzIgLTQuMzUxNiwwLjk2MzJjLTEuMjksMS45MzUgLTQuOTkyMyw2LjI4NjYgLTYuMTE4OSw3LjU3MjNjLTEuMTI2NiwxLjI5IC0yLjI1MzIsMS40NDkxIC00LjE4ODIsMC40ODU5Yy0xLjkzNSwtMC45NjMyIC04LjE2NTcsLTMuMDEgLTE1LjU0NDUsLTkuNTkzM2MtNS43NDkxLC01LjEyMTMgLTkuNjI3NywtMTEuNDUwOSAtMTAuNzU0MywtMTMuMzg1OWMtMS4xMjY2LC0xLjkzNSAtMC4xMjQ3LC0yLjk3OTkgMC44NDcxLC0zLjk0MzFjMC44Njg2LC0wLjg2ODYgMS45MzUsLTIuMjU3NSAyLjg5ODIsLTMuMzg0MWMwLjk2MzIsLTEuMTI2NiAxLjI5LC0xLjkzNSAxLjkzNSwtMy4yMjVjMC42NDkzLC0xLjI5IDAuMzIyNSwtMi40MjA5IC0wLjE2MzQsLTMuMzg0MWMtMC40ODU5LC0wLjk2MzIgLTQuMzUxNiwtMTAuNDc5MSAtNS45NjQxLC0xNC4zNDQ4Yy0xLjU2NTIsLTMuNzY2OCAtMy4xNjQ4LC0zLjI1NTEgLTQuMzUxNiwtMy4zMTUzYy0xLjEyNjYsLTAuMDYwMiAtMi40MTY2LC0wLjA2NDUgLTMuNzAyMywtMC4wNjQ1Yy0xLjI5LDAgLTMuMzg0MSwwLjQ4NTkgLTUuMTUxNCwyLjQyMDljLTEuNzY3MywxLjkzNSAtNi43NjM5LDYuNjA5MSAtNi43NjM5LDE2LjEyMDdjMCw5LjUxMTYgNi45MjczLDE4LjcwNSA3Ljg5MDUsMTkuOTkwN2MwLjk2MzIsMS4yOSAxMy42MjY3LDIwLjgwNzcgMzMuMDI0LDI5LjE3OThjNC42MDk2LDEuOTg2NiA4LjIxNzMsMy4xNzc3IDExLjAxNjYsNC4wNzIxYzQuNjI2OCwxLjQ3MDYgOC44NDUxLDEuMjY0MiAxMi4xNzc2LDAuNzY1NGMzLjcxNTIsLTAuNTU0NyAxMS40MzgsLTQuNjc0MSAxMy4wNDYyLC05LjE4NDhjMS42MTI1LC00LjUxMDcgMS42MTI1LC04LjM4NSAxLjEyNjYsLTkuMTg0OGMtMC40NzczLC0wLjgyNTYgLTEuNzYzLC0xLjMxMTUgLTMuNzAyMywtMi4yNzQ3eiIgZmlsbD0iI2ZmZmZmZiI+PC9wYXRoPjwvZz48cGF0aCBkPSIiIGZpbGw9Im5vbmUiPjwvcGF0aD48cGF0aCBkPSIiIGZpbGw9Im5vbmUiPjwvcGF0aD48L2c+PC9nPjwvc3ZnPg==') 50% 50% no-repeat;
+    background-size: 100%; 
+    z-index: 99;
+    position: fixed;
+    transition: all 300ms ease 0ms;    
+    bottom: 40px;
+    right: 20px;
 }
 
-.centro{
-    display: inline-block;    
-    width: 33%;
-    height: 203px;
-    margin: 3px;
-}
+@media only screen and (min-height: 601px) and (max-width: 600px){
+    .icons8-whatsapp {
+       bottom: 150px;
+       right: 10px;
+       height: 50px;
+       width: 50px;
+   }
+
+   .mensaje{
+        width: 90%;
+        height: calc(4rem + 1vw);
+        display: flex;
+        align-items: center;
+        //background: blue;
+    }
+
+   .texto{  
+        width: 100%;
+        font-size: calc(1rem + 1vw);
+        font-weight: bold;  
+        font-family: Arial, Helvetica, sans-serif; 
+        z-index: 0;    
+    }
+
+    .mensaje2{
+        width: 90%;
+        height: calc(4rem + 3vw);
+        display: flex;
+        align-items: center;
+        //background: yellow;
+    }
+
+    .texto2 {  
+        width: 100%;
+        font-size: calc(0.6rem + 1vw);
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif; 
+        z-index: 0;    
+    }
+
+    .imagen-grande {
+        width: 100%;
+        height: 200px;
+    }
+    
+    .padre{
+        display: inline-block;    
+        width: 82%;  
+    }
+} 
+
+@media only screen and (min-height: 1000px) and (min-width: 700px){
+    .icons8-whatsapp {
+       top: 150px;
+       right: 10px;
+       height: 70px;
+       width: 70px;
+   }
+
+   .mensaje{
+        width: 90%;
+        height: calc(4rem + 1vw);
+        display: flex;
+        align-items: center;
+        //background: brown;
+    }
+
+   .texto{  
+        width: 100%;
+        font-size: calc(1rem + 1vw);
+        font-weight: bold;  
+        font-family: Arial, Helvetica, sans-serif; 
+        z-index: 0;    
+    }
+
+    .mensaje2{
+        width: 90%;
+        height: calc(5rem + 3vw);
+        display: flex;
+        align-items: center;
+        //background: yellow;
+    }
+
+    .texto2 {  
+        width: 100%;
+        text-align: center;
+        font-size: calc(0.6rem + 1vw);
+        font-family: Arial, Helvetica, sans-serif; 
+        z-index: 0;    
+    }
+
+    .imagen-grande {
+        width: 30%;
+        height: 200px;
+    }
+    
+    .padre{
+        display: inline-block;    
+        width: 95%;  
+        align-items: center;
+    }
+} 
+
+@media only screen and (min-height: 601px) and (max-width: 300px){
+    .icons8-whatsapp {
+       bottom: 150px;
+       right: 10px;
+       height: 40px;
+       width: 40px;
+   }
+
+   .mensaje{
+        width: 90%;
+        height: calc(3rem + 1vw);
+        display: flex;
+        align-items: center;
+        //background: yellow;
+    }
+
+   .texto{  
+        width: 100%;
+        font-size: calc(1rem + 1vw);
+        font-weight: bold;  
+        font-family: Arial, Helvetica, sans-serif; 
+        z-index: 0;    
+    }
+
+    .mensaje2{
+        width: 90%;
+        height: calc(5rem + 3vw);
+        font-size: calc(0.7rem + 1vw);
+        display: flex;
+        align-items: center;
+        //background: yellow;
+    }
+
+    .texto2 {  
+        width: 100%;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif; 
+        z-index: 0;    
+    }
+
+    .imagen-grande {
+        width: 100%;
+        height: 200px;
+    }
+    
+    .padre{
+        display: inline-block;    
+        width: 82%;  
+    }
+} 
