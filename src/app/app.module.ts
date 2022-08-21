@@ -11,6 +11,10 @@ import { QuienesSomosComponent } from './nosotros/quienesSomos/quienes-somos.com
 
 const router: Routes = [
   {
+    path: '',
+    component: InicioComponent
+  },
+  {
     path: 'inicio/:opcion/:grupo/:subgrupo',
     component: InicioComponent
   },

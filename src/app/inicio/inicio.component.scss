@@ -5,22 +5,20 @@
 
 .mensaje{
     width: 90%;
-    height: calc(3rem + 1vw);
+    height: calc(3rem + 2.5vw);
     display: flex;
     align-items: center;        
     text-align: center;   
     //background: red;
 }
 
-.texto{  
-    height: 50%;
+.texto{ 
     width: 100%;
     font-size: calc(1rem + 1vw);
     font-weight: bold; 
     font-family: Arial, Helvetica, sans-serif; 
     z-index: 0;    
     //background: blue;
-    align-items: flex-end;
 }
 
 .mensaje2{
@@ -32,6 +30,7 @@
 }
 
 .texto2 {  
+    width: 100%;
     text-align: center;
     font-size: calc(0.5rem + 0.9vw);
     font-family: Arial, Helvetica, sans-serif; 
@@ -41,7 +40,7 @@
 .imagen-grande {
     width: 33%;
     height: 200px;
-    margin: 3px;
+    margin: 10px;
 }
 
 .padre{
@@ -176,7 +175,7 @@
 
    .mensaje{
         width: 90%;
-        height: calc(3rem + 1vw);
+        height: calc(3.5rem + 2vw);
         display: flex;
         align-items: center;
         //background: yellow;
@@ -184,7 +183,7 @@
 
    .texto{  
         width: 100%;
-        font-size: calc(1rem + 1vw);
+        font-size: calc(0.8rem + 1vw);
         font-weight: bold;  
         font-family: Arial, Helvetica, sans-serif; 
         z-index: 0;    

@@ -1,4 +1,5 @@
 import { Component} from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { GrupoServiceService } from './controlador/grupo-service.service';
 import { SubGrupoServiceService } from './controlador/sub-grupo-service.service';
 import { Grupo } from './entidades/grupo';
@@ -15,10 +16,20 @@ export class AppComponent {
   serviceSubGrupos: SubGrupoServiceService = new SubGrupoServiceService();
   listaGrupos: Array<Grupo> = [];
   listaSubGrupos: Array<SubGrupo> = new Array<SubGrupo>();  
+  _titulo:string;  
+  _elementInicio:boolean;
 
-  constructor() { 
+  constructor(private rutaActiva: ActivatedRoute, private router: Router) { 
     this.listaGrupos = this.serviceGrupos.listaGrupos;
     this.listaSubGrupos = this.serviceSubGrupos.listaSubGrupos;
+    this._elementInicio = true;
+    this._titulo = "";
+  }
+
+  receiveMessage(mensaje: Event) {
+    console.log(mensaje + " CARGAR DATOS");
+    
+    this._elementInicio = false;
   }
 
   obtenerSubMenus(grupo:number): Array<SubGrupo> {
