@@ -4,7 +4,7 @@
 }
 
 .mensaje{
-    width: 90%;
+    width: 100%;
     height: calc(3rem + 2.5vw);
     display: flex;
     align-items: center;        
@@ -17,12 +17,13 @@
     font-size: calc(1rem + 1vw);
     font-weight: bold; 
     font-family: Arial, Helvetica, sans-serif; 
+    text-transform: uppercase;  
     z-index: 0;    
     //background: blue;
 }
 
 .mensaje2{
-    width: 90%;
+    width: 100%;
     height: calc(4rem + 1vw);
     display: flex;
     align-items: center;
@@ -37,17 +38,43 @@
     z-index: 0;    
 }
 
-.imagen-grande {
-    width: 33%;
-    height: 200px;
-    margin: 10px;
-}
-
 .padre{
     display: inline-flex;    
-    width: 90%;    
-    float: left; 
+    width: 100%;    
+    height: 200px;
+    margin-bottom: 10px;
+    align-items: center;
+    align-content: center;
 }
+
+.imagen-grande {
+    width: 33.3%;
+    height: 100%;
+}
+
+.imagen-grande img{
+    width: 90%;
+    height: 100%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.imagenfondo{
+    display: flex;
+    align-content: center;
+    width: 90%;
+    height: 78%;
+    z-index: -99;
+    margin-left: 5%;
+    margin-right: 5%;
+    position: fixed;
+    top: 120px;
+  }
+
+  .imagenfondo img{
+    width: 100%;
+    height: 100%;
+  }
 
 .icons8-whatsapp { 
     display: inline-block;
@@ -62,6 +89,21 @@
     right: 20px;
 }
 
+.rodillo { 
+    width: 30px;
+    height: 30px;
+    background-size: 100%; 
+    z-index: 99;
+    position: fixed; 
+    top: 50%;
+    left: 50%;
+}
+
+.rodillo img{
+    width: calc(3rem + 3vw);
+    height: calc(3rem + 3vw);
+}
+
 @media only screen and (min-height: 601px) and (max-width: 600px){
     .icons8-whatsapp {
        bottom: 150px;
@@ -71,7 +113,7 @@
    }
 
    .mensaje{
-        width: 90%;
+        width: 100%;
         height: calc(4rem + 1vw);
         display: flex;
         align-items: center;
@@ -87,11 +129,10 @@
     }
 
     .mensaje2{
-        width: 90%;
+        width: 100%;
         height: calc(4rem + 3vw);
         display: flex;
         align-items: center;
-        //background: yellow;
     }
 
     .texto2 {  
@@ -103,26 +144,36 @@
     }
 
     .imagen-grande {
-        width: 100%;
-        height: 200px;
+        width: 100%;         
+        height: 33%; 
+        margin-top: 3%;   
+    }
+
+    .imagen-grande img{
+        width: 90%;
+        height: 100%;
+        margin-left: 5%;
+        margin-right: 5%;
     }
     
     .padre{
         display: inline-block;    
-        width: 82%;  
+        width: 100%;  
+        height: 600px;
+        margin-top: 5px;
     }
 } 
 
 @media only screen and (min-height: 1000px) and (min-width: 700px){
     .icons8-whatsapp {
-       top: 150px;
+       bottom: 250px;
        right: 10px;
-       height: 70px;
-       width: 70px;
+       height: 4.5vw;
+       width: 4.5vw;
    }
 
    .mensaje{
-        width: 90%;
+        width: 100%;
         height: calc(4rem + 1vw);
         display: flex;
         align-items: center;
@@ -138,11 +189,10 @@
     }
 
     .mensaje2{
-        width: 90%;
+        width: 100%;
         height: calc(5rem + 3vw);
         display: flex;
         align-items: center;
-        //background: yellow;
     }
 
     .texto2 {  
@@ -154,13 +204,21 @@
     }
 
     .imagen-grande {
-        width: 30%;
-        height: 200px;
+        width: 33.3%;
+        height: 100%;
+    }
+
+    .imagen-grande img{
+        width: 90%;
+        height: 100%;
+        margin-left: 5%;
+        margin-right: 5%;
     }
     
     .padre{
-        display: inline-block;    
-        width: 95%;  
+        display: inline-flex;    
+        width: 100%;  
+        height: 15vw;
         align-items: center;
     }
 } 
@@ -174,7 +232,7 @@
    }
 
    .mensaje{
-        width: 90%;
+        width: 100%;
         height: calc(3.5rem + 2vw);
         display: flex;
         align-items: center;
@@ -190,7 +248,7 @@
     }
 
     .mensaje2{
-        width: 90%;
+        width: 100%;
         height: calc(5rem + 3vw);
         font-size: calc(0.7rem + 1vw);
         display: flex;
@@ -206,12 +264,109 @@
     }
 
     .imagen-grande {
-        width: 100%;
-        height: 200px;
+        width: 100%;         
+        height: 33%;   
+        margin-top: 6px;    
+    }
+
+    .imagen-grande img{
+        width: 90%;
+        height: 100%;
+        margin-left: 5%;
+        margin-right: 5%;
     }
     
     .padre{
         display: inline-block;    
-        width: 82%;  
+        width: 100%;  
+        height: 600px;
+        margin-top: 5px;
     }
+} 
+
+@media only screen and (min-width: 2000px) {
+  .mensaje{
+    width: 100%;
+    height: calc(3.5rem + 2vw);
+    display: flex;
+    align-items: center;
+    //background: yellow;
+  }
+
+  .texto{  
+      width: 100%;
+      font-size: calc(0.8rem + 1vw);
+      font-weight: bold;  
+      font-family: Arial, Helvetica, sans-serif; 
+      z-index: 0;    
+  }
+
+  .mensaje2{
+      width: 100%;
+      height: calc(5rem + 3vw);
+      font-size: calc(0.7rem + 1vw);
+      display: flex;
+      align-items: center;
+      //background: yellow;
+  }
+
+  .texto2 {  
+      width: 100%;
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif; 
+      z-index: 0;    
+  }
+} 
+  
+@media only screen and (max-width: 800px) and (max-height:650px) {
+  .mensaje{
+    width: 100%;
+    height: calc(3.5rem + 2vw);
+    display: flex;
+    align-items: center;
+    //background: yellow;
+  }
+
+.texto{  
+      width: 100%;
+      font-size: calc(0.8rem + 1vw);
+      font-weight: bold;  
+      font-family: Arial, Helvetica, sans-serif; 
+      z-index: 0;    
+  }
+
+  .mensaje2{
+      width: 100%;
+      height: calc(5rem + 3vw);
+      font-size: calc(0.7rem + 1vw);
+      display: flex;
+      align-items: center;
+      //background: yellow;
+  }
+
+  .texto2 {  
+      width: 100%;
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif; 
+      z-index: 0;    
+  }
+
+  .imagen-grande {
+    width: 100%;
+    height: 33%;
+    margin-bottom: 3px;
+  }
+
+  .imagen-grande img{
+    width: 90%;
+    height: 100%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  .padre{
+    display: inline-block;    
+    width: 100%;  
+    height: 600px;
+  }
 } 
