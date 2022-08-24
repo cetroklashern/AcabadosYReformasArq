@@ -1,4 +1,7 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Grupo } from '../entidades/grupo';
 
 @Injectable({
@@ -7,11 +10,18 @@ import { Grupo } from '../entidades/grupo';
 export class GrupoServiceService {
 
   private _listaGrupos!: Array<Grupo>;
+  baseUrl = environment.baseUrl;
 
-  public constructor() {     
+  public constructor(public http:HttpClient) {     
     this._listaGrupos = [];
-    this.cargarGrupos();
   }
+
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json',
+      "Access-Control-Allow-Origin": "*",      
+    } )
+  };
 
   public get listaGrupos(){
     return this._listaGrupos;
@@ -21,25 +31,8 @@ export class GrupoServiceService {
     this._listaGrupos = lista;
   }
 
-  private cargarGrupos(){
-    //TODO: Cargar los datos desde base de datos
-    this._listaGrupos = new Array<Grupo>();
-
-    let grupo = new Grupo();
-    grupo.id = 1;    
-    grupo.nombre = "Ambientes";
-    grupo.descripcion = "Ponemos en sus manos nuestra experienca para crear ambientes que se ajustes" + 
-    " a sus sueños y necesidades.";
-
-    this._listaGrupos.push(grupo);
-
-    grupo = new Grupo();
-    grupo.id = 2;    
-    grupo.nombre = "Servicios";
-    grupo.descripcion = "Contamos con personal capacitado y con experiencia para solucionar cualquier emergencia, " + 
-    "reparación y mantenimiento de tus espacios, instalaciones eléctricas, plomería, tuberias de gas y mucho más.";
-
-    this._listaGrupos.push(grupo);
+  public cargarGrupos(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/obtenergrupos.php`);
   }
 
   public obtenerGrupo(idGrupo:number):Grupo{

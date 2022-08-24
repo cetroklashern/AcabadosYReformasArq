@@ -6,47 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Acabados y Reformas Arquitectónicas S.A.S.</title>  
 </head>
-<body class="pagina">
-  <div class="cabecera">    
-    <div class="ancho">   
-      <div class="logo">
-        <img src="assets\LogoAcabadosyReformas70x70.jpg" alt="Logo" style="width:100%">
-      </div>   
-      <label class="titulo">{{title}}</label>      
-      <div class="redes">
-        <ul>
-          <li>
-            <a target="blank" href="https://www.facebook.com/Acabados-y-Reformas-Arquitect%C3%B3nicas-SAS-102876249196081" title="Facebook" class="facebook">
-              <div class="icons8-facebook-nuevo"></div>
-            </a>
-          </li>
-          <li>
-            <a target="blank" href="https://www.instagram.com/acabadosyreformasarq/" title="Instagram" class="instagram">
-              <div class="icons8-instagram"></div>
-            </a>    
-          </li>
-        </ul>
-      </div>
-    </div>     
-    <ul class="menu"> 
-      <li><a [routerLink]="['inicio',0,0,'Inicio']">Inicio</a></li>
-      <li><a [routerLink]="['quienesSomos']">Nosotros</a>
-        <ul class="msecundario">
-          <li><a [routerLink]="['mision']">Misión y Visión</a></li>
-        </ul>
-      </li>
-      <li *ngFor="let menu of this.listaGrupos"> 
-        <a [routerLink]="['inicio', menu.nombre, menu.id, 0]"> {{menu.nombre}} </a> 
-        <ul class="msecundario">
-          <li *ngFor="let submenu of this.obtenerSubMenus(menu.id)">
-            <a [routerLink]="['inicio', submenu.nombre, menu.id, submenu.id]"> {{submenu.nombre}} </a> 
-          </li>  
-        </ul>
-      </li> 
-      <li><a [routerLink]="['contacto']">Contáctanos</a></li>
-    </ul> 
-  </div>
-  <router-outlet></router-outlet>
+<body>
+  <app-cabecera></app-cabecera>
+  <div>
+    <router-outlet></router-outlet>
+  </div>  
 </body>
 </html>
 

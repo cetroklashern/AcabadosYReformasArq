@@ -1,8 +1,11 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { waitForAsync } from '@angular/core/testing';
 import { ActivatedRoute, Router} from '@angular/router';
+import { interval } from 'rxjs';
 import { GrupoServiceService } from '../controlador/grupo-service.service';
 import { ImagenesServiceService } from '../controlador/imagenes-service.service';
 import { SubGrupoServiceService } from '../controlador/sub-grupo-service.service';
+import { Imagen } from '../entidades/imagen';
 declare let require: any;
 @Component({
   selector: 'app-inicio',
@@ -12,142 +15,149 @@ declare let require: any;
 export class InicioComponent implements OnInit {
   _titulo:string;  
   _servicios:string;  
-  _imagen1:string;
-  _elementInicio:boolean;
-  _elementCocina:boolean;
-  _elementAmbientes:boolean;
-  _elementInteriores:boolean;
-  _elementExteriores:boolean;
-  _elementEscaleras:boolean;
-  _elementBanios:boolean;
-  _elementHabitacion:boolean;
-  _elementServicios:boolean;
-  _elementElectricos:boolean;
-  _elementPintura:boolean;
-  _elementPlomeria:boolean;
+  _listaImagenes:Array<string> = [];
   _textoServicio:boolean;
+  _rodillo:boolean;
+
   @Output() 
   messageEvent = new EventEmitter<string>();
 
   prueba = "Inicio";
   grupoSeleccionado = 0;
-  subGrupoSeleccionado = 0;
-  servicioImagenes: ImagenesServiceService;
-  servicioGrupos:GrupoServiceService;
-  servicioSubGrupos:SubGrupoServiceService;
+  subGrupoSeleccionado = 0;  
+  opcionSeleccionada = "";
 
-  constructor(private rutaActiva: ActivatedRoute, private router: Router) { 
-    /* TODO document why this constructor is empty */  
-    this._elementInicio = false;
-    this._elementAmbientes = false;
-    this._elementCocina = false;
-    this._elementInteriores = false;
-    this._elementExteriores = false;
-    this._elementEscaleras = false;
-    this._elementBanios = false;
-    this._elementHabitacion = false;    
-    this._elementServicios = false;
-    this._elementElectricos = false;
-    this._elementPintura = false;
-    this._elementPlomeria = false;
-    this._textoServicio = false;    
+  constructor(private rutaActiva: ActivatedRoute, private router: Router, 
+    private servicioGrupos:GrupoServiceService, private servicioSubGrupos:SubGrupoServiceService,
+    private servicioImagenes: ImagenesServiceService) { 
+    this._textoServicio = false;  
+    this._rodillo = false;  
     this._titulo = "";
     this._servicios = "";
-    this._imagen1 = "";
-    this.servicioImagenes = new ImagenesServiceService();    
-    this.servicioGrupos = new GrupoServiceService();
-    this.servicioSubGrupos = new SubGrupoServiceService();
+    this._listaImagenes = [];
   }
 
-  ngOnInit(): void {   
-    this.grupoSeleccionado = this.rutaActiva.snapshot.params['grupo'];
-    this.subGrupoSeleccionado = this.rutaActiva.snapshot.params['subgrupo'];  
-    
+  ngOnInit(): void { 
+    let lista = [];
+
+
+    let datosCargados = false;
+
     this.rutaActiva.params.subscribe(routeParams => {
-      this.cargarDatos(routeParams['opcion'], routeParams['grupo'], routeParams['subgrupo']);
+      this.grupoSeleccionado = routeParams['grupo'];
+      this.subGrupoSeleccionado = routeParams['subgrupo'];
+      this.opcionSeleccionada = routeParams['opcion'];    
+
+      this._rodillo = true;
+      console.log("VALIDAR IMAGENES");
+      if(this.servicioImagenes.listaImagenes.length > 0 && 
+        this.servicioSubGrupos.listaSubGrupos.length > 0 && 
+        this.servicioGrupos.listaGrupos.length > 0){
+        console.log("HAY IMAGENES");
+        this.cargarDatos(this.opcionSeleccionada, this.grupoSeleccionado, this.subGrupoSeleccionado);
+      } else {        
+        console.log("NO HAY IMAGENES");
+        setTimeout(()=>{
+          console.log("LLAMADO DESPUES DE TIMEOUT");
+          this.cargarDatos(this.opcionSeleccionada, this.grupoSeleccionado, this.subGrupoSeleccionado);
+      },1000);
+      }
     });
+
+    this.servicioGrupos.cargarGrupos().subscribe((data: any[])=>{
+      lista = data;
+
+      for (let [key, name] of Object.entries(lista)) {
+        this.servicioGrupos.listaGrupos = name;
+      }
+    })  
+
+    this.servicioSubGrupos.cargarSubGrupos().subscribe((data: any[])=>{
+      lista = data;
+
+      for (let [key, name] of Object.entries(lista)) {
+        this.servicioSubGrupos.listaSubGrupos = name;
+      }
+    })  
+
+    this.servicioImagenes.cargarImagenes().subscribe((data: any[])=>{
+      lista = data;
+      
+      for (let [key, name] of Object.entries(lista)) {
+        this.servicioImagenes.listaImagenes = name;
+      }
+    })  
   }
 
   private cargarDatos(opcion:string, grupo:number, subgrupo:number): void {    
-    this._titulo = opcion;
-
-    this._elementInicio = false;
-    this._elementAmbientes = false;
-    this._elementCocina = false;
-    this._elementInteriores = false;
-    this._elementExteriores = false;
-    this._elementEscaleras = false;
-    this._elementBanios = false;
-    this._elementHabitacion = false;    
-    this._elementServicios = false;
-    this._elementElectricos = false;
-    this._elementPintura = false;
-    this._elementPlomeria = false;
+    console.log("CANTIDAD GRUPOS: " + this.servicioGrupos.listaGrupos.length);
+    console.log("CANTIDAD SUBGRUPOS: " + this.servicioSubGrupos.listaSubGrupos.length);
+    console.log("CANTIDAD IMAGENES: " + this.servicioImagenes.listaImagenes.length);
+    this._titulo = opcion;    
     this._textoServicio = true;
+    this._listaImagenes = new Array<string>();
+    let imagenes = new Array<Imagen>();
 
     if(opcion == "0" || opcion == undefined){
       this._titulo = "Atrévete a soñar, nosotros te ayudamos a construir tus sueños.";
       this._textoServicio = false;
-      this._elementInicio = true;
-    } else if(grupo == 1) {
-      console.log("grupo 1");      
-      console.log("subgrupo: " + subgrupo);      
+
+      imagenes = this.servicioImagenes.obtenerImagenesAleatorias();
+    } else if(grupo == 1) {      
+      imagenes = this.servicioImagenes.obtenerImagenes(grupo, subgrupo,0);
       switch("" + subgrupo){
         case "1": 
-          this._elementCocina = true;
           this._servicios = this.obtenerServicioSubGrupo(grupo, subgrupo);
           break;
-        case "2":      
-          this._elementInteriores = true;
+        case "2":     
           this._servicios = this.obtenerServicioSubGrupo(grupo, subgrupo);
           break;
         case "3":
-          this._elementExteriores = true;
           this._servicios = this.obtenerServicioSubGrupo(grupo, subgrupo);
           break;
         case "4":
-          this._elementEscaleras = true;
           this._servicios = this.obtenerServicioSubGrupo(grupo, subgrupo);
           break;
         case "5":
-          this._elementBanios = true;
           this._servicios = this.obtenerServicioSubGrupo(grupo, subgrupo);
           break;
         case "6":
-          this._elementHabitacion = true;
           this._servicios = this.obtenerServicioSubGrupo(grupo, subgrupo);
           break;
-        default:
-          console.log("default");          
-          this._elementAmbientes = true;
+        default:       
+          imagenes = this.servicioImagenes.obtenerImagenesAleatoriasGrupo(grupo);
           this._servicios = this.obtenerServicioGrupo(grupo);
           break;
       }
     } else if(grupo == 2){
-      console.log("grupo 2");      
-      console.log("subgrupo: " + subgrupo);
+      imagenes = this.servicioImagenes.obtenerImagenes(grupo, subgrupo,0);
       switch("" + subgrupo){
         case "1":
-          this._elementPlomeria = true;
           this._servicios = this.obtenerServicioSubGrupo(grupo, subgrupo);
           break;
         case "2":
-          this._elementElectricos = true;
           this._servicios = this.obtenerServicioSubGrupo(grupo, subgrupo);
           break;
         case "3":      
-          this._elementPintura = true;    
           this._servicios = this.obtenerServicioSubGrupo(grupo, subgrupo);
           break;
         default:
-          this._elementServicios = true;   
+          imagenes = this.servicioImagenes.obtenerImagenesAleatoriasGrupo(grupo);
           this._servicios = this.obtenerServicioGrupo(grupo);
           break;
       }
     }
 
-    console.log(opcion);      
-    this._imagen1 = "\assets\LogoAcabadosyReformas.jpeg";
+    imagenes.forEach(imagen => {  
+      let ubicacion = "/assets/LogoAcabadosyReformas.jpeg";
+      
+      if(imagen.archivo.indexOf("LogoAcabadosyReformas") == -1){
+        ubicacion = "/assets/" + imagen.nombreSubGrupo + "/" + imagen.archivo;
+      } 
+      this._listaImagenes.push(ubicacion);
+    });
+
+    this._rodillo = false;
   }  
 
   private obtenerServicioGrupo(idGrupo:number): string {

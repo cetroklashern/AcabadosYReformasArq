@@ -1,154 +1,40 @@
+<div class="imagenfondo">
+    <img src="/assets/LogoFondo.jpeg" alt="logo">
+  </div>
 <div class="mensaje">
     <p class="texto">{{this._titulo}}</p>
 </div>
 <div class="mensaje2" *ngIf="_textoServicio == true">
     <p class="texto2">{{this._servicios}}</p>
 </div>
-<div *ngIf="_elementInicio == true">
-    <section class="padre">
-        <img class="imagen-grande" src="\assets\cocinas\fotoCocina2.jpeg" alt="Foto 2">
-        <img class="imagen-grande" src="\assets\escaleras\fotoEscalera2.jpeg" alt="Foto 2">
-        <img class="imagen-grande" src="\assets\baños\fotoBanio1.jpeg" alt="Foto">            
+<div>
+    <section *ngIf="_rodillo == false" class="padre">
+        <div class="imagen-grande">
+            <img [src]="_listaImagenes[0]" [alt]="_listaImagenes[0]">
+        </div>        
+        <div class="imagen-grande">
+            <img [src]="_listaImagenes[1]" [alt]="_listaImagenes[1]">
+        </div>        
+        <div class="imagen-grande">
+            <img [src]="_listaImagenes[2]" [alt]="_listaImagenes[2]">
+        </div>
     </section>
-    <section class="padre">
-        <img class="imagen-grande" src="\assets\exteriores\fotoExteriores5.jpeg" alt="Foto">
-        <img class="imagen-grande" src="\assets\interiores\fotoInteriores2.jpeg" alt="Foto">
-        <img class="imagen-grande" src="\assets\interiores\fotoInteriores5.jpeg" alt="Foto 2">
-    </section>
-</div>
-<div *ngIf="_elementCocina == true">
-    <section class="padre">
-        <img class="imagen-grande" src="\assets\cocinas\fotoCocina5.jpeg" alt="Foto">
-        <img class="imagen-grande" src="\assets\cocinas\fotoCocina6.jpeg" alt="Foto">
-        <img class="imagen-grande" src="\assets\cocinas\fotoCocina3.jpeg" alt="Foto">            
-    </section>
-    <section class="padre">
-        <img class="imagen-grande" src="\assets\cocinas\fotoCocina1.jpeg" alt="Foto">
-        <img class="imagen-grande" src="\assets\cocinas\fotoCocina2.jpeg" alt="Foto">
-        <img class="imagen-grande" src="\assets\cocinas\fotoCocina4.jpeg" alt="Foto">
-    </section>
-</div>
-<div *ngIf="_elementExteriores == true">
-    <section class="padre">
-        <img class="imagen-grande" src="\assets\exteriores\fotoExteriores1.jpeg" alt="Foto">
-        <img class="imagen-grande" src="\assets\exteriores\fotoExteriores2.jpeg" alt="Foto">
-        <img class="imagen-grande" src="\assets\exteriores\fotoExteriores3.jpeg" alt="Foto">
-    </section>
-    <section class="padre">
-        <img class="imagen-grande" src="\assets\exteriores\fotoExteriores4.jpeg" alt="Foto">
-        <img class="imagen-grande" src="\assets\exteriores\fotoExteriores5.jpeg" alt="Foto">
-        <img class="imagen-grande" src="\assets\exteriores\fotoExteriores6.jpeg" alt="Foto">
-    </section>
-</div>
-<div *ngIf="_elementInteriores == true">
-    <section class="padre">
-        <img class="imagen-grande" src="\assets\interiores\fotoInteriores1.jpeg" alt="Foto">
-        <img class="imagen-grande" src="\assets\interiores\fotoInteriores2.jpeg" alt="Foto">
-        <img class="imagen-grande" src="\assets\interiores\fotoInteriores3.jpeg" alt="Foto">
-    </section>
-    <section class="padre">
-        <img class="imagen-grande" src="\assets\interiores\fotoInteriores4.jpeg" alt="Foto">
-        <img class="imagen-grande" src="\assets\interiores\fotoInteriores5.jpeg" alt="Foto">
-        <img class="imagen-grande" src="\assets\interiores\fotoInteriores6.jpeg" alt="Foto">
-    </section>
-</div>
-<div *ngIf="_elementEscaleras == true">
-    <section class="padre">
-        <img class="imagen-grande" src="\assets\escaleras\fotoEscalera1.jpeg" alt="Foto">
-        <img class="imagen-grande" src="\assets\escaleras\fotoEscalera2.jpeg" alt="Foto">
-        <img class="imagen-grande" src="\assets\escaleras\fotoEscalera3.jpeg" alt="Foto">
-    </section>
-    <section class="padre">
-        <img class="imagen-grande" src="\assets\escaleras\fotoEscalera4.jpeg" alt="Foto">
-        <img class="imagen-grande" src="\assets\escaleras\fotoEscalera5.jpeg" alt="Foto">
-        <img class="imagen-grande" src="\assets\escaleras\fotoEscalera6.jpeg" alt="Foto">
-    </section>
-</div>
-<div *ngIf="_elementHabitacion == true">
-    <section class="padre">
-        <img class="imagen-grande" src="\assets\LogoAcabadosyReformas.jpeg" alt="Foto">
-        <img class="imagen-grande" src="\assets\LogoAcabadosyReformas.jpeg" alt="Foto">
-        <img class="imagen-grande" src="\assets\LogoAcabadosyReformas.jpeg" alt="Foto">
-    </section>
-    <section class="padre">
-        <img class="imagen-grande" src="\assets\LogoAcabadosyReformas.jpeg" alt="Foto">
-        <img class="imagen-grande" src="\assets\LogoAcabadosyReformas.jpeg" alt="Foto">
-        <img class="imagen-grande" src="\assets\LogoAcabadosyReformas.jpeg" alt="Foto">
-    </section>
-</div>
-<div *ngIf="_elementBanios == true">
-    <section class="padre">
-        <img class="imagen-grande" src="\assets\LogoAcabadosyReformas.jpeg" alt="Foto">
-        <img class="imagen-grande" src="\assets\LogoAcabadosyReformas.jpeg" alt="Foto">
-        <img class="imagen-grande" src="\assets\LogoAcabadosyReformas.jpeg" alt="Foto">
-    </section>
-    <section class="padre">
-        <img class="imagen-grande" src="\assets\LogoAcabadosyReformas.jpeg" alt="Foto">
-        <img class="imagen-grande" src="\assets\LogoAcabadosyReformas.jpeg" alt="Foto">
-        <img class="imagen-grande" src="\assets\LogoAcabadosyReformas.jpeg" alt="Foto">
-    </section>
-</div>
-<div *ngIf="_elementAmbientes == true">
-    <section class="padre">
-        <img class="imagen-grande" src="\assets\cocinas\fotoCocina2.jpeg" alt="Foto 2">
-        <img class="imagen-grande" src="\assets\escaleras\fotoEscalera2.jpeg" alt="Foto 2">
-        <img class="imagen-grande" src="\assets\baños\fotoBanio1.jpeg" alt="Foto">            
-    </section>
-    <section class="padre">
-        <img class="imagen-grande" src="\assets\exteriores\fotoExteriores5.jpeg" alt="Foto">
-        <img class="imagen-grande" src="\assets\interiores\fotoInteriores2.jpeg" alt="Foto">
-        <img class="imagen-grande" src="\assets\interiores\fotoInteriores5.jpeg" alt="Foto 2">
-    </section>
-</div>
-<div *ngIf="_elementServicios == true">
-    <section class="padre">
-        <img class="imagen-grande" src="\assets\LogoAcabadosyReformas.jpeg" alt="Foto 1">
-        <img class="imagen-grande" src="\assets\LogoAcabadosyReformas.jpeg" alt="Foto 1">
-        <img class="imagen-grande" src="\assets\LogoAcabadosyReformas.jpeg" alt="Foto">    
-    </section>
-    <section class="padre">
-        <img class="imagen-grande" src="\assets\LogoAcabadosyReformas.jpeg" alt="Foto">
-        <img class="imagen-grande" src="\assets\LogoAcabadosyReformas.jpeg" alt="Foto">
-        <img class="imagen-grande" src="\assets\LogoAcabadosyReformas.jpeg" alt="Foto">
-    </section>
-</div>
-<div *ngIf="_elementPintura == true">
-    <section class="padre">
-        <img class="imagen-grande" src="\assets\LogoAcabadosyReformas.jpeg" alt="Foto 1">
-        <img class="imagen-grande" src="\assets\LogoAcabadosyReformas.jpeg" alt="Foto 1">
-        <img class="imagen-grande" src="\assets\LogoAcabadosyReformas.jpeg" alt="Foto">    
-    </section>
-    <section class="padre">
-        <img class="imagen-grande" src="\assets\LogoAcabadosyReformas.jpeg" alt="Foto">
-        <img class="imagen-grande" src="\assets\LogoAcabadosyReformas.jpeg" alt="Foto">
-        <img class="imagen-grande" src="\assets\LogoAcabadosyReformas.jpeg" alt="Foto">
-    </section>
-</div>
-<div *ngIf="_elementPlomeria == true">
-    <section class="padre">
-        <img class="imagen-grande" src="\assets\LogoAcabadosyReformas.jpeg" alt="Foto 1">
-        <img class="imagen-grande" src="\assets\LogoAcabadosyReformas.jpeg" alt="Foto 1">
-        <img class="imagen-grande" src="\assets\LogoAcabadosyReformas.jpeg" alt="Foto">    
-    </section>
-    <section class="padre">
-        <img class="imagen-grande" src="\assets\LogoAcabadosyReformas.jpeg" alt="Foto">
-        <img class="imagen-grande" src="\assets\LogoAcabadosyReformas.jpeg" alt="Foto">
-        <img class="imagen-grande" src="\assets\LogoAcabadosyReformas.jpeg" alt="Foto">
-    </section>
-</div>
-<div *ngIf="_elementElectricos == true">
-    <section class="padre">
-        <img class="imagen-grande" src="\assets\LogoAcabadosyReformas.jpeg" alt="Foto 1">
-        <img class="imagen-grande" src="\assets\LogoAcabadosyReformas.jpeg" alt="Foto 1">
-        <img class="imagen-grande" src="\assets\LogoAcabadosyReformas.jpeg" alt="Foto">    
-    </section>
-    <section class="padre">
-        <img class="imagen-grande" src="\assets\LogoAcabadosyReformas.jpeg" alt="Foto">
-        <img class="imagen-grande" src="\assets\LogoAcabadosyReformas.jpeg" alt="Foto">
-        <img class="imagen-grande" src="\assets\LogoAcabadosyReformas.jpeg" alt="Foto">
+    <section *ngIf="_rodillo == false" class="padre">
+        <div class="imagen-grande">
+            <img [src]="_listaImagenes[3]" [alt]="_listaImagenes[3]">
+        </div>        
+        <div class="imagen-grande">
+            <img [src]="_listaImagenes[4]" [alt]="_listaImagenes[4]">
+        </div>        
+        <div class="imagen-grande">
+            <img [src]="_listaImagenes[5]" [alt]="_listaImagenes[5]">
+        </div>
     </section>
 </div>
 <a target="blank" href="https://api.whatsapp.com/send?phone=573012698782&text=buenos días" 
     title="Whatsapp" class="Whatsapp">
     <div class="icons8-whatsapp"></div>
 </a>    
+<div *ngIf="_rodillo == true" class="rodillo">
+    <img src="/assets/icons8-rodillo.gif" alt="rodillo">
+</div>

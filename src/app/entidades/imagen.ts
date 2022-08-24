@@ -7,7 +7,7 @@ export class Imagen {
     private _subGrupo: number = 0;
     private _nombreSubGrupo: string = "";
     private _nombre: string= "";
-    private _fecha:Date = new Date("01/01/1999");
+    private _fecha:string = "";
 
     public Imagen(){
       // TODO document why this method 'Imagen' is empty
@@ -82,7 +82,7 @@ export class Imagen {
         return this._fecha;
     }
 
-    public set fecha(newFecha:Date){
+    public set fecha(newFecha:string){
         this._fecha = newFecha;
     }
 }

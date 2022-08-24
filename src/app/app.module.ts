@@ -6,8 +6,9 @@ import { AppComponent } from './app.component';
 import { ContactanosComponent } from './contactanos/contactanos.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { RouterModule, Routes } from '@angular/router';
-import { MisionComponent } from './nosotros/mision/mision.component';
 import { QuienesSomosComponent } from './nosotros/quienesSomos/quienes-somos.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CabeceraComponent } from './cabecera/cabecera.component';
 
 const router: Routes = [
   {
@@ -25,10 +26,6 @@ const router: Routes = [
   {
     path: 'quienesSomos',
     component: QuienesSomosComponent
-  },
-  {
-    path: 'mision',
-    component: MisionComponent
   }
 ];
 
@@ -37,12 +34,13 @@ const router: Routes = [
     AppComponent,
     ContactanosComponent,
     InicioComponent,
-    MisionComponent
+    CabeceraComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(router, {onSameUrlNavigation: 'reload'})
+    RouterModule.forRoot(router, {onSameUrlNavigation: 'reload'}),
+    HttpClientModule
   ],
   exports: [RouterModule],
   providers: [],
