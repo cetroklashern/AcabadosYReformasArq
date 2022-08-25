@@ -40,14 +40,14 @@ export class ImagenesServiceService {
     if(pagina == 0){
       listaResultado = this._listaImagenes.filter(imagen => imagen.grupo == grupo && imagen.subGrupo == subGrupo).
         sort((imagen1, imagen2) => new Date(imagen2.fecha).getTime() - new Date(imagen1.fecha).getTime(),).
-        slice(0,6);
+        slice(0,9);
     } else {
       listaResultado = this._listaImagenes.filter(imagen => imagen.grupo == grupo && imagen.subGrupo == subGrupo).
         sort((imagen1, imagen2) => new Date(imagen2.fecha).getTime() - new Date(imagen1.fecha).getTime(),).
-        slice(6 * pagina, (6 * pagina) + 6);
+        slice(9 * pagina, (9 * pagina) + 9);
     }
 
-    while(listaResultado.length < 6){
+    while(listaResultado.length < 9){
       listaResultado.push(this.obtenerImagenPorDefecto());
     }
 
@@ -79,7 +79,7 @@ export class ImagenesServiceService {
       });
     }
     
-    return listaImagenesFiltrada.slice(0,6);
+    return listaImagenesFiltrada.slice(0,9);
   }
 
   public obtenerImagenesAleatoriasGrupo(grupo: number): Imagen[] {  
@@ -105,6 +105,6 @@ export class ImagenesServiceService {
       }
     }
     
-    return listaImagenesFiltrada.slice(0,6);
+    return listaImagenesFiltrada.slice(0,9);
   }
 }

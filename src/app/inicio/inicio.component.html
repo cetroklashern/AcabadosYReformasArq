@@ -19,7 +19,7 @@
             <img [src]="_listaImagenes[2]" [alt]="_listaImagenes[2]">
         </div>
     </section>
-    <section *ngIf="_rodillo == false" class="padre">
+    <section *ngIf="_rodillo == false && _fila2 == true" class="padre">
         <div class="imagen-grande">
             <img [src]="_listaImagenes[3]" [alt]="_listaImagenes[3]">
         </div>        
@@ -28,6 +28,17 @@
         </div>        
         <div class="imagen-grande">
             <img [src]="_listaImagenes[5]" [alt]="_listaImagenes[5]">
+        </div>
+    </section>
+    <section *ngIf="_rodillo == false && _fila3 == true" class="padre">
+        <div class="imagen-grande">
+            <img [src]="_listaImagenes[6]" [alt]="_listaImagenes[6]">
+        </div>        
+        <div class="imagen-grande">
+            <img [src]="_listaImagenes[7]" [alt]="_listaImagenes[7]">
+        </div>        
+        <div class="imagen-grande">
+            <img [src]="_listaImagenes[8]" [alt]="_listaImagenes[8]">
         </div>
     </section>
 </div>

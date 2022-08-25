@@ -1,7 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { waitForAsync } from '@angular/core/testing';
 import { ActivatedRoute, Router} from '@angular/router';
-import { interval } from 'rxjs';
 import { GrupoServiceService } from '../controlador/grupo-service.service';
 import { ImagenesServiceService } from '../controlador/imagenes-service.service';
 import { SubGrupoServiceService } from '../controlador/sub-grupo-service.service';
@@ -18,6 +16,8 @@ export class InicioComponent implements OnInit {
   _listaImagenes:Array<string> = [];
   _textoServicio:boolean;
   _rodillo:boolean;
+  _fila2:boolean;
+  _fila3:boolean;
 
   @Output() 
   messageEvent = new EventEmitter<string>();
@@ -32,6 +32,8 @@ export class InicioComponent implements OnInit {
     private servicioImagenes: ImagenesServiceService) { 
     this._textoServicio = false;  
     this._rodillo = false;  
+    this._fila2 = false;
+    this._fila3 = false;
     this._titulo = "";
     this._servicios = "";
     this._listaImagenes = [];
@@ -49,6 +51,8 @@ export class InicioComponent implements OnInit {
       this.opcionSeleccionada = routeParams['opcion'];    
 
       this._rodillo = true;
+      this._fila2 = false;
+      this._fila3 = false;
       console.log("VALIDAR IMAGENES");
       if(this.servicioImagenes.listaImagenes.length > 0 && 
         this.servicioSubGrupos.listaSubGrupos.length > 0 && 
@@ -103,59 +107,35 @@ export class InicioComponent implements OnInit {
       this._textoServicio = false;
 
       imagenes = this.servicioImagenes.obtenerImagenesAleatorias();
-    } else if(grupo == 1) {      
+    } else {      
       imagenes = this.servicioImagenes.obtenerImagenes(grupo, subgrupo,0);
-      switch("" + subgrupo){
-        case "1": 
-          this._servicios = this.obtenerServicioSubGrupo(grupo, subgrupo);
-          break;
-        case "2":     
-          this._servicios = this.obtenerServicioSubGrupo(grupo, subgrupo);
-          break;
-        case "3":
-          this._servicios = this.obtenerServicioSubGrupo(grupo, subgrupo);
-          break;
-        case "4":
-          this._servicios = this.obtenerServicioSubGrupo(grupo, subgrupo);
-          break;
-        case "5":
-          this._servicios = this.obtenerServicioSubGrupo(grupo, subgrupo);
-          break;
-        case "6":
-          this._servicios = this.obtenerServicioSubGrupo(grupo, subgrupo);
-          break;
-        default:       
-          imagenes = this.servicioImagenes.obtenerImagenesAleatoriasGrupo(grupo);
-          this._servicios = this.obtenerServicioGrupo(grupo);
-          break;
+      if(subgrupo == 0){
+        imagenes = this.servicioImagenes.obtenerImagenesAleatoriasGrupo(grupo);
+        this._servicios = this.obtenerServicioGrupo(grupo);
+      } else {
+        this._servicios = this.obtenerServicioSubGrupo(grupo, subgrupo);
       }
-    } else if(grupo == 2){
-      imagenes = this.servicioImagenes.obtenerImagenes(grupo, subgrupo,0);
-      switch("" + subgrupo){
-        case "1":
-          this._servicios = this.obtenerServicioSubGrupo(grupo, subgrupo);
-          break;
-        case "2":
-          this._servicios = this.obtenerServicioSubGrupo(grupo, subgrupo);
-          break;
-        case "3":      
-          this._servicios = this.obtenerServicioSubGrupo(grupo, subgrupo);
-          break;
-        default:
-          imagenes = this.servicioImagenes.obtenerImagenesAleatoriasGrupo(grupo);
-          this._servicios = this.obtenerServicioGrupo(grupo);
-          break;
-      }
-    }
+    }        
+
+    let cantidadImagenes = 0;
 
     imagenes.forEach(imagen => {  
       let ubicacion = "/assets/LogoAcabadosyReformas.jpeg";
       
       if(imagen.archivo.indexOf("LogoAcabadosyReformas") == -1){
         ubicacion = "/assets/" + imagen.nombreSubGrupo + "/" + imagen.archivo;
+        cantidadImagenes++;
       } 
       this._listaImagenes.push(ubicacion);
     });
+
+    if(cantidadImagenes > 3){
+      this._fila2 = true;
+    }
+
+    if(cantidadImagenes > 6){
+      this._fila3 = true;
+    }
 
     this._rodillo = false;
   }  
